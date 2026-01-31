@@ -1,0 +1,175 @@
+# AI Exception Modeler V7 - Requirements
+# With Code Repository Integration
+
+# ============================================================================
+# CORE DEPENDENCIES (Existing)
+# ============================================================================
+
+# Streamlit - Web UI Framework
+streamlit>=1.28.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Excel File Support
+openpyxl>=3.1.0
+xlrd>=2.0.1
+
+# Visualization
+plotly>=5.17.0
+
+# ============================================================================
+# LLM & NLP DEPENDENCIES (Existing)
+# ============================================================================
+
+# Transformers - For Local LLM Models
+transformers>=4.35.0
+torch>=2.0.0
+accelerate>=0.24.0
+
+# Vector Embeddings & Similarity
+sentence-transformers>=2.2.2
+
+# ============================================================================
+# CODE REPOSITORY INTEGRATION (NEW)
+# ============================================================================
+
+# Vector Database for Code Storage
+chromadb>=0.4.18
+
+# Additional NLP Tools
+sentencepiece>=0.1.99
+tokenizers>=0.15.0
+
+# Text Similarity & Fuzzy Matching
+python-Levenshtein>=0.23.0
+fuzzywuzzy>=0.18.0
+
+# ============================================================================
+# LLM API CLIENTS (Optional - for API-based models)
+# ============================================================================
+
+# Groq API Client
+groq>=0.4.0
+
+# Together AI
+together>=0.2.0
+
+# OpenAI (if needed)
+openai>=1.3.0
+
+# ============================================================================
+# UTILITY DEPENDENCIES (Existing)
+# ============================================================================
+
+# HTTP Requests
+requests>=2.31.0
+
+# Date/Time Utilities
+python-dateutil>=2.8.2
+
+# JSON Processing
+jsonschema>=4.19.0
+
+# File System Operations
+pathlib>=1.0.1
+watchdog>=3.0.0
+
+# Progress Bars
+tqdm>=4.66.0
+
+# ============================================================================
+# LOGGING & MONITORING
+# ============================================================================
+
+# Better Logging
+colorlog>=6.7.0
+
+# System Monitoring
+psutil>=5.9.0
+
+# ============================================================================
+# DEVELOPMENT DEPENDENCIES (Optional)
+# ============================================================================
+
+# Code Quality
+# pylint>=3.0.0
+# black>=23.0.0
+# flake8>=6.0.0
+
+# Testing
+# pytest>=7.4.0
+# pytest-cov>=4.1.0
+
+# ============================================================================
+# NOTES
+# ============================================================================
+
+# Installation Instructions:
+# 1. Basic Installation:
+#    pip install -r requirements.txt
+#
+# 2. GPU Support (faster processing):
+#    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+#
+# 3. For CPU-only (smaller install):
+#    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+#
+# 4. Optional API Clients (only if using API models):
+#    pip install groq together openai
+#
+# 5. Development Dependencies (only for developers):
+#    pip install pylint black flake8 pytest pytest-cov
+
+# ============================================================================
+# SYSTEM REQUIREMENTS
+# ============================================================================
+
+# Python Version: 3.9 or higher
+# RAM: Minimum 8GB (16GB recommended for local LLMs)
+# Disk Space: 
+#   - Application: ~2GB
+#   - Code Repository Vectors: ~5% of codebase size
+#   - Local LLM Models (optional): 2-14GB depending on model
+# GPU: Optional (CUDA-compatible GPU for faster processing)
+
+# ============================================================================
+# KNOWN COMPATIBILITY NOTES
+# ============================================================================
+
+# 1. Windows Users:
+#    - Some packages may require Microsoft C++ Build Tools
+#    - Download from: https://visualstudio.microsoft.com/visual-cpp-build-tools/
+#
+# 2. macOS Users:
+#    - Xcode Command Line Tools required
+#    - Install: xcode-select --install
+#
+# 3. Linux Users:
+#    - Build essentials required
+#    - Install: sudo apt-get install build-essential python3-dev
+
+# ============================================================================
+# TROUBLESHOOTING
+# ============================================================================
+
+# Problem: torch installation fails
+# Solution: Install specific version for your system
+#   - CUDA 11.8: pip install torch --index-url https://download.pytorch.org/whl/cu118
+#   - CUDA 12.1: pip install torch --index-url https://download.pytorch.org/whl/cu121
+#   - CPU only:  pip install torch --index-url https://download.pytorch.org/whl/cpu
+#
+# Problem: chromadb installation fails
+# Solution: Update pip first
+#   - python -m pip install --upgrade pip
+#   - pip install chromadb
+#
+# Problem: sentence-transformers slow to install
+# Solution: Install pre-built wheel
+#   - pip install sentence-transformers --prefer-binary
+#
+# Problem: Out of memory errors
+# Solution: Use smaller models or increase swap space
+#   - Use T5-base instead of T5-large
+#   - Use ollama-llama-3.2 (3B) instead of larger models
