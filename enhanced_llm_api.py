@@ -92,6 +92,14 @@ class EnhancedLLMAPI:
             elif self.provider == 'ollama':
                 self.api_endpoint = "http://localhost:11434/api/generate"
                 logger.info(f"✅ Ollama setup complete - endpoint: {self.api_endpoint}")
+            elif self.provider == 'openrouter':
+                api_key = os.getenv("OPENROUTER_API_KEY")
+                if not api_key:
+                    logger.warning("⚠️ OPENROUTER_API_KEY not set - will use demo mode fallback")
+                self.api_key = api_key
+                self.api_endpoint = "https://openrouter.ai/api/v1/chat/completions"
+                self.model_id = self.model_config.get('model_id', 'meta-llama/llama-3.1-8b-instruct:free')
+                logger.info(f"✅ OpenRouter setup complete - model: {self.model_id}")
             logger.info(f"✅ API setup complete for {self.provider}")
         except Exception as e:
             logger.error(f"❌ Error setting up API: {str(e)}")
@@ -204,6 +212,30 @@ class EnhancedLLMAPI:
                 response.raise_for_status()
                 result = response.json()
                 return result.get('response', '{"Resolution":"REPROCESS","Root_Cause":"API error","Reasoning":"No response","Suggested_Action":"Retry","Confidence":55,"Similar_Patterns":"None"}')
+
+            elif self.provider == 'openrouter':
+                if not self.api_key:
+                    # Demo mode fallback - return sample response
+                    logger.warning("⚠️ OpenRouter API key not set - using demo mode")
+                    return '{"Resolution":"INVESTIGATE","Root_Cause":"Demo Mode - API key not configured","Reasoning":"This is a demo response","Suggested_Action":"Configure OPENROUTER_API_KEY for real analysis","Confidence":75,"Similar_Patterns":"Demo mode active"}'
+                
+                headers = {
+                    "Authorization": f"Bearer {self.api_key}",
+                    "Content-Type": "application/json",
+                    "HTTP-Referer": "https://artifex.engineer",
+                    "X-Title": "AI Exception Modeler Demo"
+                }
+                data = {
+                    "model": self.model_id,
+                    "messages": [{"role": "user", "content": prompt}],
+                    "max_tokens": max_length,
+                    "temperature": 0.0,
+                    "top_p": 1.0
+                }
+                response = requests.post(self.api_endpoint, headers=headers, json=data, timeout=60)
+                response.raise_for_status()
+                result = response.json()
+                return result['choices'][0]['message']['content']
 
         except Exception as e:
             logger.error(f"Error generating API response: {str(e)}")

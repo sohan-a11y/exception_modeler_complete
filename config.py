@@ -104,6 +104,24 @@ AVAILABLE_MODELS = {
         "max_length": 8192,
     },
     
+    # OpenRouter Models (FREE tier available)
+    "openrouter-llama-3.1-8b": {
+        "name": "Meta Llama 3.1 8B (OpenRouter)",
+        "type": "api",
+        "provider": "openrouter",
+        "model_id": "meta-llama/llama-3.1-8b-instruct:free",
+        "description": "FREE - Best for demos",
+        "max_length": 8192,
+    },
+    "openrouter-mistral-7b": {
+        "name": "Mistral 7B (OpenRouter)",
+        "type": "api",
+        "provider": "openrouter",
+        "model_id": "mistralai/mistral-7b-instruct:free",
+        "description": "FREE - Fast responses",
+        "max_length": 8192,
+    },
+    
     # Local Transformer Models
     "t5-base": {
         "name": "T5 Base",
