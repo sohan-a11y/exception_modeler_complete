@@ -1,3 +1,9 @@
+![GitHub License](https://img.shields.io/github/license/sohan-a11y/exception_modeler_complete?style=flat-square)
+![GitHub Last Commit](https://img.shields.io/github/last-commit/sohan-a11y/exception_modeler_complete?style=flat-square)
+![GitHub Stars](https://img.shields.io/github/stars/sohan-a11y/exception_modeler_complete?style=flat-square)
+
+[![Skills](https://skillicons.dev/icons?i=python,scikit-learn,streamlit)](https://skillicons.dev)
+
 <div align="center">
 
 # 🤖 AI Exception Modeler V7.0
@@ -168,4 +174,15 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 <div align="center">
 <p>Built with ❤️ using Streamlit, ChromaDB, and LLM Magic</p>
 <p>⭐ Star this repo if you find it useful!</p>
+</div>
+
+
+---
+
+<div align="center">
+
+**Built by [M Sai Sohan (@sohan-a11y)](https://github.com/sohan-a11y)**
+
+*If you find this project useful, please consider giving it a ⭐ on GitHub!*
+
 </div>
