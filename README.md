@@ -1,10 +1,3 @@
-![GitHub License](https://img.shields.io/github/license/sohan-a11y/exception_modeler_complete?style=flat-square)
-![GitHub Last Commit](https://img.shields.io/github/last-commit/sohan-a11y/exception_modeler_complete?style=flat-square)
-![GitHub Stars](https://img.shields.io/github/stars/sohan-a11y/exception_modeler_complete?style=flat-square)
-![GitHub Forks](https://img.shields.io/github/forks/sohan-a11y/exception_modeler_complete?style=flat-square)
-
-[![Skills](https://skillicons.dev/icons?i=python,scikit-learn,streamlit)](https://skillicons.dev)
-
 <div align="center">
 
 # 🤖 AI Exception Modeler V7.0
